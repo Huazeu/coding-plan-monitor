@@ -1,9 +1,14 @@
 """Coding Plan Monitor - 多平台 Coding Plan 用量查询工具"""
 
 import argparse
+import io
 import json
 import os
 import sys
+
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 try:
     import yaml
